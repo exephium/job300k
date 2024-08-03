@@ -1,16 +1,20 @@
-Object.prototype.customMap = function(callback) {
-  const arr = []
-  for (let i = 0; i < this.length; i++) {
-      arr.push(callback(this[i]))
-  }
-  return arr
-};
-
 const list = [1, 2]
 
-const result = list.customMap(el => {
-  return {
-      id: el,
-      name: `User ${el}`,
+function map(list, callbackFn) {
+  const arr = []
+
+  for (let i = 0; i < list.length; i++) {
+    arr.push(callbackFn(list[i], i, list))
   }
-})
+
+  return arr
+}
+
+const result = map(list, (el, i, arr) => {
+    return {
+      id: ++i,
+      name: `User ${el}`,
+      list: arr,
+    }
+  }
+)
