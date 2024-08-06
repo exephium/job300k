@@ -2,7 +2,7 @@ function filter(list, callbackFn) {
   const arr = []
 
   for (let i = 0; i < list.length; i++) {
-    if (callbackFn(list[i]))
+    if (callbackFn(list[i], i, list))
       arr.push(list[i])
   }
 

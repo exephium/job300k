@@ -1,6 +1,6 @@
 function some(list, callbackFn) {
   for (let i = 0; i < list.length; i++) {
-    if (callbackFn(list[i]))
+    if (callbackFn(list[i], i, list))
       return true
   }
 
